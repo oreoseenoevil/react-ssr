@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently \"vite build --watch\" \"nodemon --experimental-specifier-resolution=node ./server/index.js\"",
     "dev": "vite",
-    "server": "nodemon --experimental-specifier-resolution=node ./server/index.js",
+    "server": "node --experimental-specifier-resolution=node ./server/index.js",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"

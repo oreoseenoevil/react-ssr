@@ -28,6 +28,8 @@ export default defineConfig(({ mode }) => {
 			]
 		},
     plugins: [react()],
-    mode: 'development'
+    build: {
+      outDir: 'build'
+    }
   }
 });
