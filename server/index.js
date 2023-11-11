@@ -1,20 +1,15 @@
-import envLoaded from "./lib/env";
-
+import dotenv from 'dotenv'
 import express from 'express';
 import cors from 'cors';
 import compression from "compression";
-import process from "process";
-
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
+import process from "process";
 
-if(envLoaded.parsed)
-	console.info("[Env] Environment variables loaded");
-else
-	console.error("[Env] Environment variables failed to load");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
+dotenv.config()
 const app = express();
 
 // Setup middlewares
@@ -34,7 +29,7 @@ app.get('/api/data', (req, res) => {
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-	console.log(`[Server] Server started on port: ${port}`);
+  console.log(`[Server] Server started on port: ${port}`);
 });
 
 export default app;
